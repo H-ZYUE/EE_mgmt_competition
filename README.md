@@ -16,7 +16,7 @@
 ## 二、项目分析
 
 > 总的设计思路用下图表示：
-> ![结构图](C:./img/结构图.png)
+> ![结构图](./img/结构图.png)
 
 ## 三、实现过程
 
@@ -170,10 +170,6 @@
 
 ​		测试训练好的小刀检测模型效果如下图所示，可以发现笔者检测了6副违禁品画面，其中有5副测试成功，并且还可以发现这几张图片中的违禁品目标的大小还算是相对中等偏大，运用到其它场面时还<u>偶尔存在误检</u>，只能说效果勉强可以。
 
-><img src="./img/测试违禁品1.png" alt="测试违禁品1" style="zoom: 23%;" /><img src="./img/测试违禁品2.png" alt="测试违禁品2" style="zoom:23%;" /><img src="./img/测试违禁品3.png" alt="测试违禁品3" style="zoom:23%;" />
->
-><img src="./img/测试违禁品4.png" alt="测试违禁品4" style="zoom:23%;" /><img src="./img/测试违禁品5.png" alt="测试违禁品5" style="zoom:23%;" /><img src="./img/测试违禁品6.png" alt="测试违禁品6" style="zoom:23%;" />
-
 ## 六、参考内容
 
 > ①北京理工大学嵩天python教程：https://www.icourse163.org/learn/BIT-268001?tid=1460270441
@@ -308,8 +304,7 @@ void setup()
 void loop()
 ```
 
-> 以上并非完整代码，只是主要函数的定义，代码详见`mgmt.ino`：
-     <img src="./img/传感器代码.png" alt="传感器代码" style="zoom:20%;" /><img src="./img/sensor.png" alt="sensor" style="zoom:23%;" />
+> 以上并非完整代码，只是主要函数的定义，代码详见`mgmt.ino`。
 
 ---
 
