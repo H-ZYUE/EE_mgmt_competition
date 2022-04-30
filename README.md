@@ -207,65 +207,7 @@ python /home/pi/Desktop/rasp_arduino.py
 > ```python
 > ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)  # 打开端口
 > ```
-## 附录2：串口通信代码
-
-### （1）树莓派端
-```python
-# -*-coding:UTF-8-*-
-# 此代码只在树莓派上运行
-import serial  # 导入serial库
-import datetime  # 获取当前时间
-import os
-import time
-ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)  # 打开端口，每一秒返回一个消息
-# try模块用来结束循环（靠抛出异常）
-try:
-    while 1:
-        ser.write('s\n'.encode())  # 写s字符
-        time.sleep(2)
-        os.makedirs('安防情况', exist_ok=True)
-        now = datetime.datetime.now()
-        print(now)
-        response = ser.readall()  # 用response读取端口的返回值
-        response = str(response, 'utf-8')
-        savedate = datetime.date.today()
-        filename = '安防情况/' + str(savedate) + '.txt'
-        f = open(filename, "w")
-        f.write('***********************安防状况*************************' + "\n")
-        f.write(str(now) + '\n')
-        f.write(response)
-        f.write('***********************安防状况*************************' + "\n")
-        f.close()
-        print('successful')
-except:
-    #ser.close()  # 抛出异常后关闭端口
-    print("error!!!")
-```
-### （2）Arduino端
-```c++
-void rasp_arduino()
-{
-    if (Serial.available()) //判断串口缓存区有没有数据
-    {
-        if ('s' == Serial.read()) //有数据就用read来读取并判断是不是s
-        {
-            Serial.print("最大温度：");
-            Serial.println(Tep_max);
-            Serial.print("最小温度：");
-            Serial.println(Tep_min);
-            Serial.print("最大烟雾浓度模拟值：");
-            Serial.println(Smk_max);
-            Serial.print("最小烟雾浓度模拟值：");
-            Serial.println(Smk_min);
-            Serial.print("实验室是否有人：");
-            Serial.println(people);
-            Serial.print("实验室门开关情况：");
-            Serial.println(door);
-        } //是的话就向串口打印这串字符
-    }
-}
-```
-## 附录3：传感器方面代码
+## 附录2：传感器方面代码
 
 ```c++
 #include "dht11.h"
